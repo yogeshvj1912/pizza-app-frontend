@@ -1,6 +1,4 @@
-
-
-.signup-bg{
+.signup-bg {
   background-color: rgb(60, 60, 237);
   height: 100vh;
   width: 100vw;
@@ -8,7 +6,7 @@
   align-items: center;
 }
 
-.nav-topbar{
+.nav-topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,89 +15,130 @@
 
 
 @media only screen and (max-width: 650px) {
- .nav-topbar{
-  padding: 11px 0px 1px 10px;
- }
+  .nav-topbar {
+    padding: 11px 0px 1px 10px;
+  }
 
 }
 
-.empty-space{
+.empty-space {
   width: 15%;
 }
-.heading{
+
+.heading {
   color: black;
-  background-color:#adff2f ;
+  background-color: #adff2f;
   border-radius: 30px;
   padding: 6px 15px;
   text-align: center;
+  font-weight: 500;
 }
 
-.nav-buttons{
+
+
+.nav-buttons {
   width: 250px;
-display: flex;
-justify-content: space-around;
-align-items: center;
-list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
 }
 
-.green-color{
+.green-color {
 
   color: rgb(0, 0, 0);
   font-size: 15px;
-font-weight: bold;
-background-color: #adff2f;
-padding: 5px 10px;
-border-radius: 20px;
-border: none;
+  font-weight: bold;
+  background-color: #adff2f;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: none;
 
 }
-.green-color:hover{
+@media only screen and (max-width: 530px) {
+  .heading {
+    padding: 6px 10px;
+    font-size: 15px;
+  }
+
+  .green-color {
+    font-size: 13px;
+    padding: 5px 10px;
+ }
+
+  .nav-buttons {
+    width: 200px;
+  }
+
+}
+
+@media only screen and (max-width: 400px) {
+  .heading {
+    padding: 6px 5px;
+    font-size: 16px;
+  }
+
+  .green-color {
+    font-size: 13px;
+    padding: 5px 5px;
+
+  }
+
+  .nav-buttons {
+    width: 160px;
+    margin-left: 0;
+  }
+
+}
+
+.green-color:hover {
   text-decoration: none;
   color: #adff2f;
   background-color: black;
 }
 
-.box-shadow{
+.box-shadow {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-top: 40px;
 }
 
-.card-img{
+.card-img {
   height: 280px;
 }
-.card-title{
+
+.card-title {
   color: black;
   font-weight: 500;
   font-size: 19px;
 }
 
-.card-price{
+.card-price {
   display: inline;
   padding: 4px 9px;
   border-radius: 20px;
   color: rgb(0, 0, 0);
   font-weight: 700;
   font-size: 20px;
-background-color: #adff2f;
+  background-color: #adff2f;
 }
 
-.card-detail-box{
+.card-detail-box {
   display: flex;
   align-items: center;
   height: 160px;
   font-size: 14px;
 }
-.card-detail{
 
-}
-.card-body{
+.card-detail {}
+
+.card-body {
   color: black;
 }
 
-.add-button-color{
+.add-button-color {
   background-color: #adff2f;
   border-radius: 150px;
-  font-weight: 700; 
+  font-weight: 700;
   color: #000000;
-  
+
 }
