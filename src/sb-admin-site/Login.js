@@ -43,11 +43,11 @@ const formik = useFormik({
                                     <div className="form-group">
                                         <input type="email" name='email' value={formik.values.email} onChange={formik.handleChange} className="form-control form-control-user"
                                             id="exampleInputEmail" aria-describedby="emailHelp"
-                                            placeholder="Enter Email Address..."/>
+                                            placeholder="Enter Email Address..."  autoComplete='off'/>
                                     </div>
                                     <div className="form-group">
                                         <input type="password" name='password' value={formik.values.password} onChange={formik.handleChange} className="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password"/>
+                                            id="exampleInputPassword" placeholder="Password"  autoComplete='off'/>
                                     </div>
 
             

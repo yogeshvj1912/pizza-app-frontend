@@ -85,20 +85,20 @@ function SignUp() {
                         <div className="form-group row">
                             <div className="col-sm-12 mb-3 mb-sm-0">
                                 <input name='username' value={myFormik.values.username} onChange={myFormik.handleChange} type={"text"} className={`form-control form-control-user ${myFormik.errors.username ? "is-invalid" : "is-valid"}`}  id="exampleFirstName"
-                                    placeholder="Enter Your Name"/>
+                                    placeholder="Enter Your Name"  autoComplete='off'/>
                                     <span style={{ color: "red" }}>{myFormik.errors.username}</span>
                             </div>
                             
                         </div>
                         <div className="form-group">
                             <input name='email' value={myFormik.values.email} onChange={myFormik.handleChange} type={"text"} className={`form-control form-control-user ${myFormik.errors.email ? "is-invalid" : "is-valid"}`}  id="exampleInputEmail"
-                                placeholder="Email Address"/>
+                                placeholder="Email Address"  autoComplete='off'/>
                                 <span style={{ color: "red" }}>{myFormik.errors.email}</span>
                         </div>
                         <div className="form-group row">
                             <div className="col-sm-12 mb-3 mb-sm-0">
                                 <input  name='password' value={myFormik.values.password} onChange={myFormik.handleChange} type={"text"} className={`form-control form-control-user ${myFormik.errors.password ? "is-invalid" : "is-valid"}`} 
-                                    id="exampleInputPassword" placeholder="Password"/>
+                                    id="exampleInputPassword" placeholder="Password"  autoComplete='off'/>
                                     <span style={{ color: "red" }}>{myFormik.errors.password}</span>
                             </div>
                         </div>

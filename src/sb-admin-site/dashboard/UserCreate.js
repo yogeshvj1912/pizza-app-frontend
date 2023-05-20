@@ -70,22 +70,22 @@ function UserCreate() {
             <div className='row'>
                <div className='col-lg-6'>
                   <label>IMAGE URL</label>
-                  <input name='img_url' value={myFormik.values.img_url} onChange={myFormik.handleChange} type={"text"} className={`form-control ${myFormik.errors.img_url ? "is-invalid" : "is-valid"}`} />
+                  <input name='img_url' value={myFormik.values.img_url} onChange={myFormik.handleChange} type={"text"} className={`form-control ${myFormik.errors.img_url ? "is-invalid" : "is-valid"}`}  autoComplete='off' />
                   <span style={{ color: "red" }}>{myFormik.errors.img_url}</span>
                </div>
                <div className='col-lg-6'>
                   <label>PRODUCT NAME</label>
-                  <input name='productname' value={myFormik.values.productname} onChange={myFormik.handleChange} type={"text"} className={`form-control ${myFormik.errors.productname ? "is-invalid" : "is-valid"}`} />
+                  <input name='productname' value={myFormik.values.productname} onChange={myFormik.handleChange} type={"text"} className={`form-control ${myFormik.errors.productname ? "is-invalid" : "is-valid"}`}  autoComplete='off'/>
                   <span style={{ color: "red" }}>{myFormik.errors.productname}</span>
                </div>
                <div className='col-lg-6'>
                   <label>price</label>
-                  <input name='price' value={myFormik.values.price} onChange={myFormik.handleChange} type={"number"} className={`form-control ${myFormik.errors.price ? "is-invalid" : "is-valid"}`} />
+                  <input name='price' value={myFormik.values.price} onChange={myFormik.handleChange} type={"number"} className={`form-control ${myFormik.errors.price ? "is-invalid" : "is-valid"}`}  autoComplete='off' />
                   <span style={{ color: "red" }}>{myFormik.errors.price}</span>
                </div>
                <div className='col-lg-6'>
                   <label>DETAIL</label>
-                  <input name='detail' value={myFormik.values.detail} onChange={myFormik.handleChange} type={"text"} className={`form-control ${myFormik.errors.detail ? "is-invalid" : "is-valid"}`} />
+                  <input name='detail' value={myFormik.values.detail} onChange={myFormik.handleChange} type={"text"} className={`form-control ${myFormik.errors.detail ? "is-invalid" : "is-valid"}`}  autoComplete='off'/>
                   <span style={{ color: "red" }}>{myFormik.errors.detail}</span>
                </div>
 
