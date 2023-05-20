@@ -134,9 +134,7 @@ function Userlist() {
                     <div className='card-detail-box'>
                     <p className="card-detail">{user.detail}</p>
                     </div>
-                    {<button  className=" add-button-color" onClick={() => addToCart(user
-
-                    )}>Add to Cart</button>}
+                    {<button  className=" add-button-color">Add to Cart</button>}
                   </div>
                 </div>
               </div>
