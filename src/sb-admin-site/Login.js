@@ -12,7 +12,7 @@ const formik = useFormik({
     },
     onSubmit:async(values)=>{
         try {
-            const login =await axios.post("https://pizzabackend-2y30.onrender.com",values);
+            const login =await axios.post("https://pizzabackend-2y30.onrender.com/login",values);
             // https://pizzabackend-2y30.onrender.com
             window.localStorage.setItem("token",login.data.token)
             navigate("/portal/user-list")
