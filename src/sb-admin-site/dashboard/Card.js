@@ -1,23 +1,46 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import AddContext from '../../AddContext'
 
-function Card({cartList, removeCart,incQuantity,decQuantity,total}) {
+
+function Card() {
+  const cardsData = useContext(AddContext)
+
+  let data = cardsData.cart
+
   return (
-    <ol class="list-group list-group-numbered"><h2>Cart</h2>
-    {
-      cartList.map((item) => {
-        return <li class="list-group-item d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">{item.username}</div>
-            {item.price} - {item.quantity}
-            <button onClick={()=>incQuantity(item)}>+</button>
-            <button disabled={item.quantity === 0?true:false} onClick={()=>decQuantity(item)}>-</button>
-          </div>
-          <button class="badge bg-primary rounded-pill" onClick={() => removeCart(item)}>Remove</button>
-        </li>
-      })
-    }
-<h3>Total : {total}</h3>
-  </ol>
+
+    <div className="container conatiner-bg">
+      <div className='row'>
+      {
+        data.map((ele,i)=>{
+           return  <div className='col-md-12 mb-2 addtocart-border' key={i}>
+           <div className="addtocart-box" >
+            <div className='addtocart-img-top'>
+            <img src={ele.img_url} className=" addtocart-img" />
+            </div>
+             <div className="addtocart-body">
+               <h5 className="addtocart-title">{ele.productname}</h5>
+               <h6 className="addtocart-price">{ele.price}</h6>
+               <div className="addtocart-quantity">
+             
+             {ele.price} - {i}
+
+             <button >+</button>
+             <button >-</button>
+           </div>
+               {<button  className=" addtocart-remove" >Remove</button>}
+             </div>
+           </div>
+         </div>
+        })
+      }
+      
+      </div>
+      <div className='addtocart-total'>
+      <h1 >Total : {1000}</h1>
+      </div>
+    </div>
+
   )
 }
 

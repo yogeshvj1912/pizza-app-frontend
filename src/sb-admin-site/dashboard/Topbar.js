@@ -18,7 +18,7 @@ function Topbar() {
                       window.localStorage.removeItem("token");
                       navigate("/")
                     }} className='btns green-color'>Logout</button></li>
-                    <li><Link to="" className='btns green-color'>Cart <FontAwesomeIcon icon={faCartPlus} /></Link></li>
+                    <li><Link to="/portal/add-to-cart" className='btns green-color'>Cart <FontAwesomeIcon icon={faCartPlus} /></Link></li>
                 </ul>
       </div>
 

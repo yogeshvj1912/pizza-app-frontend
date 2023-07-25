@@ -7,11 +7,11 @@ import UserCreate from './dashboard/UserCreate'
 
 function Portal() {
   return (
-        <div id="wrapper">
-     <div id="content-wrapper" className="d-flex flex-column">
-       <div id="content">
+        <div  id="wrapper">
+     <div  id="content-wrapper" className="d-flex flex-column">
+       <div  id="content">
          <Topbar />
-         <div className="container-fluid">
+         <div  className="container-fluid container-small">
            <Outlet>
          
           <Userlist/>

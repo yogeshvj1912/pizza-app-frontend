@@ -1,86 +1,22 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import axios from "axios";
-import img from "../../images/img.jpg"
-import Card from './Card';
+
+import AddContext from '../../AddContext';
 
 function Userlist() {
 
-  // addtoCart
-
-  // const [cartList, setCart] = useState([])
-  // const [total, setTotal] = useState(0)
-
-  // let addToCart = (product) => {
-  //   setCart([...cartList, {...product,quantity:1}])
-  //   setTotal(total + product.price)
-  // }
-
-  // let removeCart = (productItem) => {
-  //   let itemIndex = cartList.findIndex(item => productItem.id === item.id)
-  //     cartList.splice(itemIndex, 1)
-  //   setCart([...cartList])
-  //   setTotal(total - productItem.price * productItem.quantity)
-
-  // };
-
-  // const incQuantity = (cartItem)=>{
-  // let itemIndex = cartList.findIndex((item)=> cartItem.id===item.id);
-  // cartList[itemIndex].quantity = cartList[itemIndex].quantity + 1
-  // setCart([...cartList])
-  // setTotal(total + cartItem.price )
-  // }
-  // const decQuantity = (cartItem)=>{
-  // let itemIndex = cartList.findIndex((item)=>cartItem.id===item.id);
-
-  //   cartList[itemIndex].quantity=cartList[itemIndex].quantity -1
-
-
-  // setCart([...cartList])
-  // setTotal(total - cartItem.price)
-  //}
-
-
-  //end
+  
 
 
   const [userList, setUserlist] = useState([])
   const [isLoading, setLoading] = useState(true);
-  const [total, setTotal] = useState(0)
+  
   const navigate=useNavigate()
+ const cardDatas=useContext(AddContext)
 
-
-  let addToCart = (product) => {
-    setUserlist([...userList, { ...getUsers, quantity: 1 }])
-    setTotal(total + getUsers.price)
-  }
-
-  let removeCart = (productItem) => {
-    let itemIndex = userList.findIndex(item => productItem.id === item.id)
-    userList.splice(itemIndex, 1)
-    setUserlist([...userList])
-    setTotal(total - productItem.price * productItem.quantity)
-
-  };
-
-
-  const incQuantity = (cartItem) => {
-    let itemIndex = userList.findIndex((item) => cartItem.id === item.id);
-    userList[itemIndex].quantity = userList[itemIndex].quantity + 1
-    setUserlist([...userList])
-    setTotal(total + cartItem.price)
-  }
-
-  const decQuantity = (cartItem) => {
-    let itemIndex = userList.findIndex((item) => cartItem.id === item.id);
-
-    userList[itemIndex].quantity = userList[itemIndex].quantity - 1
-
-
-    setUserlist([...userList])
-    setTotal(total - cartItem.price)
-  }
+ 
 
 
 
@@ -125,7 +61,7 @@ function Userlist() {
       
           {
             userList.map((user, index) => {
-              return <div className='col-lg-4 col-md-6 col-sm-12 mb-3 '>
+              return <div className='col-lg-4 col-md-6 col-sm-12 mb-3 ' key={index}>
                 <div className="card box-shadow" >
                   <img src={user.img_url} className="card-img-top card-img" />
                   <div className="card-body">
@@ -134,7 +70,11 @@ function Userlist() {
                     <div className='card-detail-box'>
                     <p className="card-detail">{user.detail}</p>
                     </div>
-                    {<button  className=" add-button-color">Add to Cart</button>}
+                    {<button  className=" add-button-color" onClick={()=>{
+                      
+                      cardDatas.setCart([...cardDatas.cart,user])
+                      
+                    }}>Add to Cart</button>}
                   </div>
                 </div>
               </div>
