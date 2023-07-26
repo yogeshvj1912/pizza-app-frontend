@@ -70,11 +70,8 @@ function Userlist() {
                     <div className='card-detail-box'>
                     <p className="card-detail">{user.detail}</p>
                     </div>
-                    {<button  className=" add-button-color" onClick={()=>{
-                      
-                      cardDatas.setCart([...cardDatas.cart,user])
-                      
-                    }}>Add to Cart</button>}
+                    {cardDatas.cartlist.some(item => item._id === user._id)? <Link to="/portal/add-to-cart"  className="go-button-color" >Go To Cart</Link>:<button className=" add-button-color" onClick={()=>{
+                      cardDatas.addToCart(user)}}>Add To Cart</button>}
                   </div>
                 </div>
               </div>
