@@ -3,10 +3,14 @@ import { createContext, useState } from "react";
 let AddContext = createContext();
 
 export function AddProvider ({children}){
-    // const [cart,setCart]=useState([]);
     const [cartlist,setCartlist]=useState([])
     const [total,setTotal] = useState(0)
+    const [user,setUser]=useState()
     
+    let getUserEmail=(data)=>{
+      setUser(data)
+     
+    }
     
     let addToCart =(product)=>{
         setCartlist([...cartlist,{...product,quantity:1}])
@@ -37,7 +41,7 @@ export function AddProvider ({children}){
 
 
     return(
-        <AddContext.Provider value={{cartlist,addToCart,total,removeCart,incQuantity,decQuantity}}>{children}</AddContext.Provider>
+        <AddContext.Provider value={{cartlist,addToCart,total,removeCart,incQuantity,decQuantity,user,setUser,getUserEmail}}>{children}</AddContext.Provider>
     )
 };
 export default AddContext;

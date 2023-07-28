@@ -4,6 +4,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import axios from "axios";
 
 import AddContext from '../../AddContext';
+import { useFormik } from 'formik';
 
 function Userlist() {
 
@@ -12,17 +13,30 @@ function Userlist() {
 
   const [userList, setUserlist] = useState([])
   const [isLoading, setLoading] = useState(true);
+ 
   
   const navigate=useNavigate()
  const cardDatas=useContext(AddContext)
 
- 
-
-
-
   useEffect(() => {
+    getEmail()
     getUsers();
+ 
   }, []);
+
+  
+  let getEmail=async()=>{
+    try {
+        const login =await axios.get(`https://pizzabackend-2y30.onrender.com/login-data/${cardDatas.user}`);
+          
+              window.sessionStorage.setItem("role",login.data.role)
+              setLoading(false)
+            
+    } catch (error) {
+     console.log(error)
+    }
+}
+
 
   let getUsers = async () => {
     try {
@@ -31,15 +45,20 @@ function Userlist() {
           Authorization:`${window.localStorage.getItem("token")}`
         }
       })
+
       setUserlist(users.data);
       setLoading(false)
+    
     }
     catch (error) {
       navigate("/")
     }
   };
+  
 
-
+ 
+  let val=window.sessionStorage.getItem("role")
+ 
 
 
   return (
@@ -48,15 +67,20 @@ function Userlist() {
 <div className='bgcolor'>
 
 
-      <div className=" mb-4">
-       
-        <Link to="/portal/user-create" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-          className="fas fa-download fa-sm text-white-50"></i> Create Pizza</Link>
-      </div>
       
+    
 
       {
-        isLoading ? <h1>Loading...</h1> : <div className='container'>
+        isLoading ? <h1>Loading...</h1> :
+      
+        <>
+       
+       {val=="admin"?<div >
+       <Link to="/portal/user-create" className="ml-3 btn btn-sm btn-primary shadow-sm"><i
+         className="fas fa-download fa-sm text-white-50"></i> Admin panel</Link>
+     </div>:""}
+
+        <div className='container'>
           <div className='row'>
       
           {
@@ -85,6 +109,7 @@ function Userlist() {
           }
               </div>
         </div>
+        </>
       }
       </div>
     </>

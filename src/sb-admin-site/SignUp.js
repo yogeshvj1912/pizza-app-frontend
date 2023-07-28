@@ -11,7 +11,7 @@ function SignUp() {
           username: "",
           email: "",
          password:"",
-        
+        role:"user"
        },
        validate: (values) => {
           let errors = {}
@@ -55,8 +55,9 @@ function SignUp() {
           }
           catch (error) {
              console.log(error);
-             alert("validation Error");
              setLoading(false)
+             alert("validation Error");
+           
           }
  
  

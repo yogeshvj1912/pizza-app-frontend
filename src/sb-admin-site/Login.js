@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { useFormik } from 'formik';
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import AddContext from '../AddContext';
 
 function Login() {
+    const [isLoading,setLoading] = useState(false)
+ let userData = useContext(AddContext)
+
     const navigate=useNavigate();
 const formik = useFormik({
     initialValues:{
@@ -12,15 +16,20 @@ const formik = useFormik({
     },
     onSubmit:async(values)=>{
         try {
+            setLoading(true)
             const login =await axios.post("https://pizzabackend-2y30.onrender.com/login",values);
             // https://pizzabackend-2y30.onrender.com 
             window.localStorage.setItem("token",login.data.token)
             navigate("/portal/user-list")
         } catch (error) {
+            setLoading(false)
             alert("Enter Email And Password wrong")
+           
         }
     }
 })
+
+// userData.getUserEmail(formik.values.email)
 
   return (
     <div className="container">
@@ -53,7 +62,7 @@ const formik = useFormik({
 
             
 
-                                    <input type={"submit"} value="submit" className="btn btn-primary btn-user btn-block"/>
+                                    <input type={"submit"} disabled={isLoading} onClick={()=>userData.getUserEmail(formik.values.email)} value={isLoading?"Loding...":"Login"} className="btn btn-primary btn-user btn-block"/>
                                        
                                     <hr/>
                                     
