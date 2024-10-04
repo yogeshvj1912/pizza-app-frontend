@@ -14,12 +14,6 @@
 }
 
 
-@media only screen and (max-width: 650px) {
-  .nav-topbar {
-    padding: 11px 0px 1px 10px;
-  }
-
-}
 
 .empty-space {
   width: 15%;
@@ -295,10 +289,38 @@
   text-decoration: none;
   color: #000000;
 }
+.payment-container{
+  color: #000000;
+}
+table {
+  font-size: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  /* Remove default table borders */
+}
 
+td {
+  padding: 8px;
+  vertical-align: top;
+  /* Align content to the top */
+}
 
+td:first-child {
+  width: 180px;
+  /* Set first column width */
+  position: relative;
+
+}
+
+td:first-child::after {
+  content: ': ';
+  /* Add colon and line after label */
+  position: absolute;
+  right: 0;
+  /* Adjust position of the colon and line */
+}
 .pay{
-  width: 120px;
+  width: 100px;
   height: 40px;
   font-size: 20px;
   margin: 15px 10px;
@@ -357,7 +379,9 @@ height: 30px;
   .conatiner-bg {
     padding-top: 20px;
   }
-
+  .nav-topbar {
+    padding: 11px 0px 1px 10px;
+  }
   .addtocart-border {
     width: 100%;
     height: 180px;
@@ -433,13 +457,43 @@ height: 30px;
     margin: 10px 10px 20px;
     font-size: 22px;
   }
-
-
-
-
+.payment-container{
+  margin: 10px;
+  padding: 10px;
+}
+  .payment-row h1, .payment-row h2 {
+    font-size: 20px;
+ 
+  }
+  .success-order{
+    width: 70%;
+    padding: 10px;
+    text-align: center;
+  }
+  .success-order h1,.success-order h3{
+    font-size: 25px;
+  }
+ 
 }
 
-@media only screen and (max-width: 530px) {
+@media only screen and (max-width: 650px) {
+  .nav-topbar {
+    padding: 11px 0px 1px 10px;
+  }
+  .nav-buttons {
+    width: 300px;
+    
+  }
+ 
+  .heading {
+    padding: 6px 10px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 580px) {
 
   .heading {
     padding: 6px 10px;
@@ -447,12 +501,13 @@ height: 30px;
   }
 
   .green-color {
-    font-size: 13px;
-    padding: 5px 10px;
+    font-size: 12px;
+    padding: 5px;
+    margin-left: 1px;
   }
 
   .nav-buttons {
-    width: 200px;
+    width: 230px;
   }
 
   .addtocart-body h5 {
@@ -467,7 +522,25 @@ height: 30px;
 
     justify-content: space-between;
   }
-
+  table{
+    font-size: 15px;
+  }
+  td{
+    padding: 5px;
+  }
+  td:first-child {
+    width: 120px;
+    /* Set first column width */
+    position: relative;
+  }
+  .success-order{
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+  }
+  .success-order h1,.success-order h3{
+    font-size: 15px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -478,22 +551,32 @@ height: 30px;
   .container-small {
     padding: 0 !important;
   }
-
+.nav-topbar{
+  padding: 2px;
+  display: flex;
+  align-items: center;
+ 
+}
   .heading {
     padding: 6px 5px;
-    font-size: 16px;
+    font-size: 15px;
+   
   }
-
-  .green-color {
-    font-size: 13px;
-    padding: 5px 5px;
-
-  }
-
   .nav-buttons {
     width: 160px;
-    margin-left: 0;
+
+    padding: 0;
   }
+ 
+  .green-color {
+    font-size: 10px;
+    padding: 5px;
+    margin-left: 1px;
+  }
+
+
+
+
 
   .addtocart-border {
     width: 100%;

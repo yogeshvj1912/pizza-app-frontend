@@ -35,7 +35,7 @@ function App() {
       <Route path="add-to-cart" element={<Card/>}/>
       <Route path="address" element={<Address/>} />
       <Route path="payment" element={<Payment/>} />
-      <Route path="deliver-status" element={<DeliveryStatus/>} />
+      <Route path="delivery-status" element={<DeliveryStatus/>} />
       </Route> 
      
     </Routes>
