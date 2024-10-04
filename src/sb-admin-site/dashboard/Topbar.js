@@ -9,16 +9,18 @@ function Topbar() {
   return (
     // <!-- Topbar -->
     <nav className="topbar mb-4 static-top shadow nav-topbar">
-       <h3 className="heading">Hot & Spicy pizzas</h3> 
+       <h3><Link className="heading" to="/portal/user-list">Hot & Spicy pizzas</Link> </h3> 
 
 
       <div  className="nav-bar">
       <ul className="nav-buttons">
                     <li><button onClick={()=>{
                       window.localStorage.removeItem("token");
+                      window.sessionStorage.removeItem("role","email")
                       navigate("/")
-                    }} className='btns green-color'>Logout</button></li>
-                    <li><Link to="/portal/add-to-cart" className='btns green-color'>Cart <FontAwesomeIcon icon={faCartPlus} /></Link></li>
+                    }} className='green-color'>Logout</button></li>
+                    <li><Link to="/portal/add-to-cart" className='green-color'>Cart <FontAwesomeIcon icon={faCartPlus} /></Link></li>
+                    <li><Link to="/portal/delivery-status" className='green-color'>Your Orders</Link></li>
                 </ul>
       </div>
 

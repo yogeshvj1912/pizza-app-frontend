@@ -6,15 +6,18 @@ export function AddProvider ({children}){
     const [cartlist,setCartlist]=useState([])
     const [total,setTotal] = useState(0)
     const [user,setUser]=useState()
+    const [item,setItem] = useState(0)
+    const [paymentData,setPaymentData] = useState([])
     
     let getUserEmail=(data)=>{
       setUser(data)
      
     }
-    
+    console.log(user)
     let addToCart =(product)=>{
         setCartlist([...cartlist,{...product,quantity:1}])
         setTotal(total + product.price)
+       setItem({...product,quantity:1})
        
     }
 
@@ -38,10 +41,20 @@ export function AddProvider ({children}){
         setTotal(total-cartItem.price)
       }
 
-
-
+      const totalAmount=(total)=>{
+        if (total>=200) {
+          return total;
+        } else if(total<=0){
+          return 0;
+        }
+        else{
+          return total+40
+        }
+      
+      }
+      let amount = totalAmount(total)
     return(
-        <AddContext.Provider value={{cartlist,addToCart,total,removeCart,incQuantity,decQuantity,user,setUser,getUserEmail}}>{children}</AddContext.Provider>
+        <AddContext.Provider value={{cartlist,addToCart,amount,total,item,removeCart,incQuantity,decQuantity,user,setUser,getUserEmail,paymentData,setPaymentData}}>{children}</AddContext.Provider>
     )
 };
 export default AddContext;
